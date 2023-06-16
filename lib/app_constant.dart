@@ -5,6 +5,9 @@ const rowDivider = SizedBox(width: 20);
 const colDivider = SizedBox(height: 10);
 const tinySpacing = 3.0;
 const smallSpacing = 10.0;
+const emailLength = 256;
+const passwordLength = 52;
+const nameLength=100;
 
 enum ColorSeed {
   baseColor('M3 Baseline', Color(0xff6750a4)),
