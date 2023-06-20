@@ -36,6 +36,23 @@ class LoginPageState extends State<LoginPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Center(
+                      child: Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: const Image(
+                            image:
+                                NetworkImage('https://picsum.photos/536/354'),
+                            width: 60,
+                            height: 60,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                    ),
+                    colDivider,
+                    const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 6.0)),
                     const Text(
                       'Please enter your email and password',
                       style: TextStyle(fontSize: 14),
@@ -89,21 +106,28 @@ class LoginPageState extends State<LoginPage> {
                           child: TextButton(
                               onPressed: () {
                                 //GoRouter.of(context).go("/forgotpassword");
-                                _nonModalBottomSheetController =
-                                    showBottomSheet(
-                                  enableDrag: true,
+                                showModalBottomSheet(
+                                  showDragHandle: true,
+                                  elevation: 20,
+                                  isDismissible: false,
                                   backgroundColor:
                                       Theme.of(context).colorScheme.background,
-                                  constraints: const BoxConstraints(
-                                      maxWidth: 640, maxHeight: 400),
                                   context: context,
                                   builder: (context) {
                                     return Padding(
-                                      padding: const EdgeInsets.all(20.0),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20.0),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
+                                          Center(
+                                            child: Text('Forgot Password',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .titleLarge),
+                                          ),
+                                          colDivider,
                                           const Text(
                                             'Please enter your email ',
                                             style: TextStyle(fontSize: 14),
